@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="clickBTN" value="click">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            document.getElementById('clickBTN').addEventListener("click", function (e) {
+                e.preventDefault();
+                var current_user = "hello"
+                if (current_user) {
+                    data = { username: current_user };
+                    $.ajax({
+                        type: "get",
+                        url: "/marksheet/2",
+                        data: JSON.stringify({}),
+                        contentType: "application/json",
+                        success: function (response) {
+                            console.log(response);
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(xhr.responseText);
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
